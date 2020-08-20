@@ -12,23 +12,49 @@ const totalScore = (allScores) => {
 return allScores.score = 1000
 }
 
-const nightOwls = () => {
-  
+const nightOwls = (arrWithObjOfPeople) => {
+  //returning object within an arr
+  //empty arr needed
+  const result = [];
+
+  //loop through the arrWithObjOfPeople to find who is awake
+  for (const times of arrWithObjOfPeople) {
+    //compare the times 
+    if (times.localTime > 100 && times.localTime < 400 && times.asleep === false) {
+      result.push(times);
+    }
+  }
+  return result;
 }
 
 const getToBed = () => {
 
 }
 
-const findIndices = (arr, callBack) => {
-  //
+const findIndices = (arr, callBackFunc) => {
+  //empty arr needed
+  const result = [];
+  
+  // //need to loop through every element to get indices 
+  for (let i = 0; i < arr.length; i++) {
+    if (callBackFunc(arr[i]) === true) {
+      result.push(i);
+    }
+  }
+  // for (const item of arr) {
+  //   if (callBackFunc(item) === true) {
+  //     result.push(item);
 
+  //   }
+
+  // }
+  return result
 }
 
 const Faqtory = () => {
   return {
     questions: [],
-    
+  
     addQuestion (text, answered = false){
       this.questions.push({
         text: text,
@@ -37,16 +63,14 @@ const Faqtory = () => {
       });
     },
     
-    answerQuestion(givenId, answer = true){
+    answerQuestion (givenId, answer){
       if (this.questions[givenId].answered === false)
       this.questions[givenId].answer = answer;
-
-      if (this.questions[givenId].answered === true) {
-//unfinished
-      }
+      this.questions[givenId].answered = true;
+      },
     } 
   }
-}
+
 
 
 
