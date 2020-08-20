@@ -1,5 +1,12 @@
 
+const makeRunOn = (sentence) => {
+//replace the period w/ commas
+return sentence.split('. ').join(', ');
+}
 
+const totalScore = () => {
+  
+}
 
 
 
